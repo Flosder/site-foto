@@ -11,38 +11,42 @@
             padding: 0;
             background-color: #f4f4f4;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             flex-direction: column;
+            align-items: center;
         }
 
         header {
             background-color: #333;
             color: white;
             text-align: center;
-            padding: 20px 0;
+            padding: 10px 20px;
             width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
         header .container {
             display: flex;
-            justify-content: center;
             align-items: center;
             max-width: 1200px;
-            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            width: 100px;
+            height: auto;
+            margin-right: 20px;
         }
 
         header h1 {
             margin: 0;
             font-size: 36px;
             flex-grow: 1;
-        }
-
-        .logo {
-            width: 100px; /* Ajuste o tamanho da logo aqui */
-            height: auto;
-            margin-right: 20px;
+            text-align: left;
         }
 
         .nav-buttons {
@@ -99,17 +103,49 @@
             position: relative;
         }
 
+        .photographer-selector {
+            width: 80%;
+            max-width: 1200px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .photographer-selector h2 {
+            margin-bottom: 10px;
+        }
+
+        .photographer-selector select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .category-section {
+            width: 80%;
+            max-width: 1200px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .category-section h2 {
+            margin-bottom: 20px;
+        }
+
         .photo-grid {
             display: grid;
-            grid-template-columns: repeat(4, 200px);
+            grid-template-columns: repeat(4, 1fr);
             gap: 10px;
-            margin: 20px 0;
+            margin: 0 auto;
+            max-width: 1200px;
         }
 
         .photo-grid a {
             position: relative;
             display: block;
-            width: 200px;
+            width: 100%;
             height: 200px;
         }
 
@@ -145,6 +181,79 @@
             text-align: center;
             padding: 20px 0;
             width: 100%;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 28px;
+                text-align: center;
+            }
+
+            .logo {
+                width: 80px;
+                margin-right: 10px;
+            }
+
+            .nav-buttons {
+                gap: 10px;
+            }
+
+            .nav-buttons a {
+                padding: 8px 16px;
+                font-size: 16px;
+            }
+
+            .container {
+                flex-direction: column;
+                align-items: center;
+                width: 90%;
+            }
+
+            .text-section {
+                width: 100%;
+                padding: 10px;
+                text-align: center;
+            }
+
+            .carousel {
+                width: 100%;
+                height: auto;
+            }
+
+            .carousel img {
+                width: 100%;
+                height: auto;
+            }
+
+            .photo-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 10px;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .photo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-buttons a {
+                font-size: 14px;
+            }
+
+            .logo {
+                width: 60px;
+            }
         }
     </style>
     <script>
@@ -194,36 +303,51 @@
         </div>
 
         <section class="carousel">
-            <img src="1.jpeg" alt="" class="active">
-            <img src="2.jpeg" alt="">
-            <img src="3.jpeg" alt="">
-            <img src="4.jpeg" alt="">
-            <img src="5.jpeg" alt="">
-            <img src="6.jpeg" alt="">
-            <img src="7.jpeg" alt="">
-            <img src="8.jpeg" alt="">
-            <img src="9.jpeg" alt="">
-            <img src="10.jpg" alt="">
+            <img src="a.jpeg" alt="" class="active">
+            <img src="b.jpeg" alt="">
+            <img src="c.jpeg" alt="">
+            <img src="d.jpeg" alt="">
+            <img src="e.jpeg" alt="">
+            <img src="f.jpeg" alt="">
+            <img src="g.jpeg" alt="">
+            <img src="h.jpeg" alt="">
+            <img src="i.jpeg" alt="">
+            <img src="j.jpeg" alt="">
         </section>
     </div>
 
-    <div class="photo-grid">
-        <a href="1.html">
-            <img src="1.jpeg" alt="Foto 1">
-            <div class="overlay">FUTSAL</div>
-        </a>
-        <a href="2.html">
-            <img src="2.jpeg" alt="Foto 2">
-            <div class="overlay">CASAMENTO</div>
-        </a>
-        <a href="3.html">
-            <img src="3.jpeg" alt="Foto 3">
-            <div class="overlay">ESPORTES</div>
-        </a>
-        <a href="4.html">
-            <img src="4.jpeg" alt="Foto 4">
-            <div class="overlay">DIVERSOS</div>
-        </a>
+    <div class="photographer-selector">
+        <h2>Selecione o Fotógrafo</h2>
+        <select onchange="window.location.href = this.value;">
+            <option value="" disabled selected>Escolha um fotógrafo</option>
+            <option value="fotografo1.html">Fotógrafo 1</option>
+            <option value="fotografo2.html">Fotógrafo 2</option>
+            <option value="fotografo3.html">Fotógrafo 3</option>
+            <option value="fotografo4.html">Fotógrafo 4</option>
+            <option value="fotografo5.html">Fotógrafo 5</option>
+        </select>
+    </div>
+
+    <div class="category-section">
+        <h2>Escolha a Categoria</h2>
+        <div class="photo-grid">
+            <a href="1.html">
+                <img src="futsal.jpeg" alt="Foto 1">
+                <div class="overlay">FUTSAL</div>
+            </a>
+            <a href="2.html">
+                <img src="casamento.jpeg" alt="Foto 2">
+                <div class="overlay">CASAMENTO</div>
+            </a>
+            <a href="3.html">
+                <img src="esportes.jpeg" alt="Foto 3">
+                <div class="overlay">ESPORTES</div>
+            </a>
+            <a href="4.html">
+                <img src="4.jpeg" alt="Foto 4">
+                <div class="overlay">DIVERSOS</div>
+            </a>
+        </div>
     </div>
 
     <footer>
