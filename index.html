@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHOTTOO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+            flex-grow: 1;
+        }
+
+        .logo {
+            width: 100px; /* Ajuste o tamanho da logo aqui */
+            height: auto;
+            margin-right: 20px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-buttons a {
+            color: white;
+            background-color: #555;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            max-width: 1200px;
+            margin: 20px 0;
+        }
+
+        .text-section {
+            width: 40%;
+            padding: 20px;
+        }
+
+        .carousel {
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+        }
+
+        .carousel img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .carousel img.active {
+            opacity: 1;
+            position: relative;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 200px);
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .photo-grid a {
+            position: relative;
+            display: block;
+            width: 200px;
+            height: 200px;
+        }
+
+        .photo-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .photo-grid .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            border: 2px solid black;
+            box-sizing: border-box;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+        }
+    </style>
+    <script>
+        document.addEventListener("contextmenu", function(e){
+            e.preventDefault();
+        }, false);
+
+        window.onload = function() {
+            const images = document.querySelectorAll('.carousel img');
+            let currentIndex = 0;
+
+            function updateCarousel() {
+                images.forEach((img, index) => {
+                    img.classList.remove('active');
+                    if (index === currentIndex) {
+                        img.classList.add('active');
+                    }
+                });
+            }
+
+            function moveCarousel() {
+                currentIndex = (currentIndex + 1) % images.length;
+                updateCarousel();
+            }
+
+            setInterval(moveCarousel, 4000); // Troca de imagem a cada 4 segundos
+            updateCarousel(); // Estado inicial
+        };
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="logo.png" alt="Logo" class="logo">
+            <h1>PHOTTOO</h1>
+            <div class="nav-buttons">
+                <a href="#carrinho">Meu Carrinho</a>
+                <a href="#agendar">Agende Sua Sessão</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="text-section">
+            <h2>Bem-vindo ao PHOTTOO</h2>
+            <p>Aqui você encontrará uma seleção exclusiva de fotografias, com opções para compra e download. Explore nossas imagens e descubra o que temos a oferecer!</p>
+        </div>
+
+        <section class="carousel">
+            <img src="1.jpeg" alt="" class="active">
+            <img src="2.jpeg" alt="">
+            <img src="3.jpeg" alt="">
+            <img src="4.jpeg" alt="">
+            <img src="5.jpeg" alt="">
+            <img src="6.jpeg" alt="">
+            <img src="7.jpeg" alt="">
+            <img src="8.jpeg" alt="">
+            <img src="9.jpeg" alt="">
+            <img src="10.jpg" alt="">
+        </section>
+    </div>
+
+    <div class="photo-grid">
+        <a href="1.html">
+            <img src="1.jpeg" alt="Foto 1">
+            <div class="overlay">FUTSAL</div>
+        </a>
+        <a href="2.html">
+            <img src="2.jpeg" alt="Foto 2">
+            <div class="overlay">CASAMENTO</div>
+        </a>
+        <a href="3.html">
+            <img src="3.jpeg" alt="Foto 3">
+            <div class="overlay">ESPORTES</div>
+        </a>
+        <a href="4.html">
+            <img src="4.jpeg" alt="Foto 4">
+            <div class="overlay">DIVERSOS</div>
+        </a>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 PHOTTOO. Todos os direitos reservados.</p>
+        <p>Endereço: Rua Exemplo, 123, Cidade, Estado, CEP 00000-000</p>
+        <p>Email: contato@phottoo.com.br | Telefone: (00) 1234-5678</p>
+    </footer>
+</body>
+</html>
