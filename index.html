@@ -23,37 +23,35 @@
             width: 100%;
             box-sizing: border-box;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
+            flex-direction: column; /* Muda para coluna para que a logo e os botões fiquem empilhados */
+            align-items: center; /* Alinha tudo ao centro */
         }
 
         header .container {
             display: flex;
+            flex-direction: column;
             align-items: center;
             max-width: 1200px;
             width: 100%;
-            height: 150px;
-            box-sizing: border-box;
         }
 
         .logo {
             width: 300px;
             height: auto;
-            margin-right: 20px;
+            margin-bottom: 10px; /* Espaço entre a logo e os botões */
         }
 
         header h1 {
             margin: 0;
             font-size: 36px;
-            flex-grow: 1;
-            text-align: left;
+            text-align: center;
         }
 
         .nav-buttons {
             display: flex;
+            flex-direction: column; /* Botões empilhados verticalmente */
             align-items: center;
-            gap: 15px;
+            gap: 10px; /* Espaço entre os botões */
         }
 
         .nav-buttons a {
@@ -188,23 +186,24 @@
 
         /* Media Queries */
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 28px;
-                text-align: center;
+            header .container {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
             }
 
             .logo {
-                width: 150px; /* Aumenta o tamanho da logo no dispositivo móvel */
-                margin-right: 10px;
+                width: 150px; /* Ajusta o tamanho da logo para dispositivos móveis */
+                margin-bottom: 10px; /* Espaço entre a logo e os botões */
             }
 
             .nav-buttons {
-                gap: 5px;
+                gap: 8px; /* Ajusta o espaço entre os botões */
             }
 
             .nav-buttons a {
-                padding: 6px 12px;
-                font-size: 14px;
+                padding: 8px 16px;
+                font-size: 16px;
             }
 
             .container {
@@ -236,24 +235,17 @@
             .photographer-selector {
                 position: static;
                 text-align: center;
-                margin: 20px auto;
+                margin: 20px 0;
             }
         }
 
         @media (max-width: 480px) {
             header {
-                flex-direction: column;
-                text-align: center;
                 padding: 5px;
             }
 
             .nav-buttons {
-                flex-direction: column;
                 gap: 5px;
-            }
-
-            .photo-grid {
-                grid-template-columns: 1fr;
             }
 
             .nav-buttons a {
@@ -261,11 +253,12 @@
             }
 
             .logo {
-                width: 120px; /* Aumenta o tamanho da logo no dispositivo móvel */
+                width: 100px; /* Reduz o tamanho da logo em dispositivos muito pequenos */
             }
 
             .photographer-selector {
                 width: 100%;
+                margin: 20px 0;
             }
         }
     </style>
@@ -292,8 +285,8 @@
                 updateCarousel();
             }
 
-            setInterval(moveCarousel, 4000);
-            updateCarousel();
+            setInterval(moveCarousel, 4000); // Troca de imagem a cada 4 segundos
+            updateCarousel(); // Estado inicial
         };
     </script>
 </head>
@@ -301,7 +294,7 @@
     <header>
         <div class="container">
             <img src="logo.png" alt="Logo" class="logo">
-                <div class="nav-buttons">
+            <div class="nav-buttons">
                 <a href="#carrinho">Meu Carrinho</a>
                 <a href="#agendar">Agende Sua Sessão</a>
             </div>
@@ -369,4 +362,3 @@
     </footer>
 </body>
 </html>
-
