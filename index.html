@@ -120,21 +120,49 @@
             max-width: 1200px;
             margin: 20px 0;
             text-align: center;
+        }
+
+        .highlight-section h2 {
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .highlight-images {
             display: flex;
-            justify-content: flex-start;
+            justify-content: center;
             gap: 10px;
+            margin: 0 auto;
         }
 
-        .highlight-section a {
+        .highlight-images a {
             display: block;
-            width: 100px;
+            width: 200px;
+            height: 200px;
+            position: relative;
         }
 
-        .highlight-section img {
-            width: 100px;
-            height: auto;
+        .highlight-images img {
+            width: 200%;
+            height: 200%;
             border: 2px solid #ccc;
             border-radius: 5px;
+        }
+
+        .highlight-images .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-radius: 5px;
+            font-size: 20px;
+            font-weight: bold;
         }
 
         .category-section {
@@ -243,6 +271,11 @@
                 align-items: center;
             }
 
+            .highlight-images {
+                flex-direction: column;
+                align-items: center;
+            }
+
             .photo-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -279,6 +312,11 @@
             }
 
             .highlight-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .highlight-images {
                 flex-direction: column;
                 align-items: center;
             }
@@ -350,9 +388,33 @@
     </div>
 
     <div class="highlight-section">
-        <a href="5.html"><img src="destaque1.jpeg" alt="Destaque 1"></a>
-        <a href="6.html"><img src="destaque2.jpeg" alt="Destaque 2"></a>
-        <a href="7.html"><img src="destaque3.jpeg" alt="Destaque 3"></a>
+        <h2>DESTAQUES</h2>
+        <div class="highlight-images">
+            <a href="5.html">
+                <img src="dest1.jpeg" alt="Destaque 1">
+                <div class="overlay">Destaque 1</div>
+            </a>
+            <a href="6.html">
+                <img src="dest2.jpeg" alt="Destaque 2">
+                <div class="overlay">Destaque 2</div>
+            </a>
+            <a href="7.html">
+                <img src="dest3.jpeg" alt="Destaque 3">
+                <div class="overlay">Destaque 3</div>
+            </a>
+            <a href="8.html">
+                <img src="dest4.jpeg" alt="Destaque 4">
+                <div class="overlay">Destaque 4</div>
+            </a>
+            <a href="9.html">
+                <img src="dest5.jpeg" alt="Destaque 5">
+                <div class="overlay">Destaque 5</div>
+            </a>
+            <a href="10.html">
+                <img src="dest6.jpeg" alt="Destaque 6">
+                <div class="overlay">Destaque 6</div>
+            </a>
+        </div>
     </div>
 
     <div class="photographer-selector">
