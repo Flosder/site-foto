@@ -18,41 +18,30 @@
         header {
             background-color: #333;
             color: white;
-            text-align: center;
-            padding: 5px 10px; /* Reduz o padding para diminuir a altura do cabeçalho */
             width: 100%;
             box-sizing: border-box;
+            padding: 10px 20px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            flex-wrap: wrap;
         }
 
-        header .container {
+        .header-content {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
             width: 100%;
             height: 150px;
-            box-sizing: border-box;
+            max-width: 1200px;
         }
 
         .logo {
-            width: 300px; /* Aumenta o tamanho da logo */
+            width: 300px;
             height: auto;
-            margin-right: 20px;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 36px;
-            flex-grow: 1;
-            text-align: left;
         }
 
         .nav-buttons {
             display: flex;
-            align-items: center;
             gap: 15px;
         }
 
@@ -62,7 +51,7 @@
             padding: 10px 20px;
             text-decoration: none;
             border-radius: 5px;
-            font-size: 18px;
+            font-size: 16px;
         }
 
         .container {
@@ -115,12 +104,12 @@
 
         .photographer-selector h2 {
             margin-bottom: 10px;
-            font-size: 14px; /* Diminui a fonte do título */
+            font-size: 14px;
         }
 
         .photographer-selector select {
             padding: 8px;
-            font-size: 14px; /* Diminui a fonte do select */
+            font-size: 14px;
             border-radius: 5px;
             border: 1px solid #ccc;
             width: 100%;
@@ -188,14 +177,12 @@
 
         /* Media Queries */
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 28px;
-                text-align: center;
+            header {
+                padding: 10px 15px;
             }
 
             .logo {
-                width: 100px;
-                margin-right: 10px;
+                width: 120px;
             }
 
             .nav-buttons {
@@ -204,7 +191,7 @@
 
             .nav-buttons a {
                 padding: 8px 16px;
-                font-size: 16px;
+                font-size: 14px;
             }
 
             .container {
@@ -242,38 +229,31 @@
 
         @media (max-width: 480px) {
             header {
-                padding: 0; /* Remove o padding para reduzir a altura do cabeçalho */
-                text-align: center;
-                width: 100%; /* Garante que o cabeçalho ocupe toda a largura disponível */
+                padding: 5px 10px;
             }
 
             .logo {
-                width: 100%; /* Faz a logo preencher toda a largura do cabeçalho */
-                height: auto; /* Mantém a proporção da logo */
+                width: 100px;
             }
 
             .nav-buttons {
-                position: static; /* Remove a posição absoluta para que os botões não fiquem fora do cabeçalho */
-                margin: 20px auto;
-                text-align: center; /* Centraliza os botões abaixo da logo */
-                width: 100%; /* Garante que os botões estejam alinhados ao centro do cabeçalho */
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 10px;
             }
 
             .nav-buttons a {
-                padding: 10px 20px; /* Ajusta o padding dos botões */
-                font-size: 16px; /* Ajusta o tamanho da fonte dos botões */
+                padding: 10px;
+                font-size: 14px;
             }
 
             .photo-grid {
                 grid-template-columns: 1fr;
             }
 
-            .logo {
-                width: 80px; /* Ajusta o tamanho da logo no dispositivo móvel, se necessário */
-            }
-
             .photographer-selector {
                 width: 100%;
+                margin: 10px auto;
             }
         }
     </style>
@@ -307,12 +287,12 @@
 </head>
 <body>
     <header>
-        <div class="container">
+        <div class="header-content">
             <img src="logo.png" alt="Logo" class="logo">
-        </div>
-        <div class="nav-buttons">
-            <a href="#carrinho">Meu Carrinho</a>
-            <a href="#agendar">Agende Sua Sessão</a>
+            <div class="nav-buttons">
+                <a href="#carrinho">Meu Carrinho</a>
+                <a href="#agendar">Agende Sua Sessão</a>
+            </div>
         </div>
     </header>
 
@@ -358,22 +338,22 @@
             <a href="2.html">
                 <img src="casamento.jpeg" alt="CASAMENTO">
                 <div class="overlay">CASAMENTO</div>
-            </a>
-            <a href="3.html">
-                <img src="esportes.jpeg" alt="ESPORTES">
-                <div class="overlay">ESPORTES</div>
-            </a>
-            <a href="4.html">
-                <img src="variadas.jpeg" alt="VARIADAS">
-                <div class="overlay">VARIADAS</div>
-            </a>
+                <a href="3.html">
+                    <img src="esportes.jpeg" alt="ESPORTES">
+                    <div class="overlay">ESPORTES</div>
+                </a>
+                <a href="4.html">
+                    <img src="variadas.jpeg" alt="VARIADAS">
+                    <div class="overlay">VARIADAS</div>
+                </a>
+            </div>
         </div>
-    </div>
-
-    <footer>
-        <p>&copy; 2024 PHOTTOO. Todos os direitos reservados.</p>
-        <p>Endereço: Rua Amable Peres Rodrigues, 308, Barão de Cocais, Minas Gerais, CEP 35970-000</p>
-        <p>Email: contato@phottoo.com.br | Telefone: (00) 1234-5678</p>
-    </footer>
-</body>
-</html>
+    
+        <footer>
+            <p>&copy; 2024 PHOTTOO. Todos os direitos reservados.</p>
+            <p>Endereço: Rua Amable Peres Rodrigues, 308, Barão de Cocais, Minas Gerais, CEP 35970-000</p>
+            <p>Email: contato@phottoo.com.br | Telefone: (00) 1234-5678</p>
+        </footer>
+    </body>
+    </html>
+    
