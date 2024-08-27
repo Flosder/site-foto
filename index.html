@@ -19,7 +19,7 @@
             background-color: #333;
             color: white;
             text-align: center;
-            padding: 10px 20px;
+            padding: 5px 10px; /* Reduz o padding para diminuir a altura do cabeçalho */
             width: 100%;
             box-sizing: border-box;
             display: flex;
@@ -33,11 +33,12 @@
             align-items: center;
             max-width: 1200px;
             width: 100%;
+            height: 150px;
             box-sizing: border-box;
         }
 
         .logo {
-            width: 100px;
+            width: 300px; /* Aumenta o tamanho da logo */
             height: auto;
             margin-right: 20px;
         }
@@ -104,23 +105,25 @@
         }
 
         .photographer-selector {
-            width: 80%;
-            max-width: 1200px;
+            width: 200px;
             margin: 20px 0;
-            text-align: center;
+            text-align: left;
+            position: absolute;
+            left: 20px;
+            top: 200px;
         }
 
         .photographer-selector h2 {
             margin-bottom: 10px;
+            font-size: 14px; /* Diminui a fonte do título */
         }
 
         .photographer-selector select {
-            padding: 10px;
-            font-size: 16px;
+            padding: 8px;
+            font-size: 14px; /* Diminui a fonte do select */
             border-radius: 5px;
             border: 1px solid #ccc;
             width: 100%;
-            max-width: 400px;
         }
 
         .category-section {
@@ -191,7 +194,7 @@
             }
 
             .logo {
-                width: 80px;
+                width: 100px;
                 margin-right: 10px;
             }
 
@@ -229,6 +232,12 @@
             .photo-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            .photographer-selector {
+                position: static;
+                text-align: center;
+                margin: 20px auto;
+            }
         }
 
         @media (max-width: 480px) {
@@ -252,7 +261,11 @@
             }
 
             .logo {
-                width: 60px;
+                width: 80px;
+            }
+
+            .photographer-selector {
+                width: 100%;
             }
         }
     </style>
@@ -288,8 +301,7 @@
     <header>
         <div class="container">
             <img src="logo.png" alt="Logo" class="logo">
-            <h1>PHOTTOO</h1>
-            <div class="nav-buttons">
+                <div class="nav-buttons">
                 <a href="#carrinho">Meu Carrinho</a>
                 <a href="#agendar">Agende Sua Sessão</a>
             </div>
@@ -332,20 +344,20 @@
         <h2>Escolha a Categoria</h2>
         <div class="photo-grid">
             <a href="1.html">
-                <img src="futsal.jpeg" alt="Foto 1">
+                <img src="futsal.jpeg" alt="FUTSAL">
                 <div class="overlay">FUTSAL</div>
             </a>
             <a href="2.html">
-                <img src="casamento.jpeg" alt="Foto 2">
+                <img src="casamento.jpeg" alt="CASAMENTO">
                 <div class="overlay">CASAMENTO</div>
             </a>
             <a href="3.html">
-                <img src="esportes.jpeg" alt="Foto 3">
+                <img src="esportes.jpeg" alt="ESPORTES">
                 <div class="overlay">ESPORTES</div>
             </a>
             <a href="4.html">
-                <img src="diversas.jpeg" alt="Foto 4">
-                <div class="overlay">DIVERSAS</div>
+                <img src="variadas.jpeg" alt="VARIADAS">
+                <div class="overlay">VARIADAS</div>
             </a>
         </div>
     </div>
