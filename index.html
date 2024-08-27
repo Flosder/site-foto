@@ -19,7 +19,7 @@
             background-color: #333;
             color: white;
             text-align: center;
-            padding: 5px 10px; /* Reduz o padding para diminuir a altura do cabeçalho */
+            padding: 5px 10px;
             width: 100%;
             box-sizing: border-box;
             display: flex;
@@ -38,7 +38,7 @@
         }
 
         .logo {
-            width: 300px; /* Aumenta o tamanho da logo */
+            width: 300px;
             height: auto;
             margin-right: 20px;
         }
@@ -115,12 +115,12 @@
 
         .photographer-selector h2 {
             margin-bottom: 10px;
-            font-size: 14px; /* Diminui a fonte do título */
+            font-size: 14px;
         }
 
         .photographer-selector select {
             padding: 8px;
-            font-size: 14px; /* Diminui a fonte do select */
+            font-size: 14px;
             border-radius: 5px;
             border: 1px solid #ccc;
             width: 100%;
@@ -194,7 +194,7 @@
             }
 
             .logo {
-                width: 100px;
+                width: 150px; /* Aumenta o tamanho da logo no dispositivo móvel */
                 margin-right: 10px;
             }
 
@@ -261,7 +261,7 @@
             }
 
             .logo {
-                width: 80px;
+                width: 120px; /* Aumenta o tamanho da logo no dispositivo móvel */
             }
 
             .photographer-selector {
@@ -292,8 +292,8 @@
                 updateCarousel();
             }
 
-            setInterval(moveCarousel, 4000); // Troca de imagem a cada 4 segundos
-            updateCarousel(); // Estado inicial
+            setInterval(moveCarousel, 4000);
+            updateCarousel();
         };
     </script>
 </head>
@@ -369,3 +369,4 @@
     </footer>
 </body>
 </html>
+
