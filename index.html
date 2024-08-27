@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - PHOTTOO</title>
+    <title>PHOTTOO</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,79 +11,350 @@
             padding: 0;
             background-color: #f4f4f4;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            height: 100vh;
         }
 
-        .login-container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        header {
+            background-color: #333;
+            color: white;
             width: 100%;
-            max-width: 400px;
+            box-sizing: border-box;
+            padding: 10px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .login-container h1 {
-            margin: 0 0 20px;
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 150px;
+            max-width: 1200px;
+        }
+
+        .logo {
+            width: 300px;
+            height: auto;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-buttons a {
+            color: white;
+            background-color: #555;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            max-width: 1200px;
+            margin: 20px 0;
+        }
+
+        .text-section {
+            width: 40%;
+            padding: 20px;
+        }
+
+        .carousel {
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
             text-align: center;
         }
 
-        .login-container label {
-            display: block;
+        .carousel img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .carousel img.active {
+            opacity: 1;
+            position: relative;
+        }
+
+        .photographer-selector {
+            width: 200px;
+            margin: 20px 0;
+            text-align: left;
+            position: absolute;
+            left: 20px;
+            top: 200px;
+        }
+
+        .photographer-selector h2 {
             margin-bottom: 10px;
+            font-size: 14px;
         }
 
-        .login-container input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
+        .photographer-selector select {
+            padding: 8px;
+            font-size: 14px;
             border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
         }
 
-        .login-container button {
+        .category-section {
+            width: 80%;
+            max-width: 1200px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .category-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        .photo-grid a {
+            position: relative;
+            display: block;
             width: 100%;
-            padding: 10px;
+            height: 200px;
+        }
+
+        .photo-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .photo-grid .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            border: 2px solid black;
+            box-sizing: border-box;
+        }
+
+        footer {
             background-color: #333;
             color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
         }
 
-        .login-container button:hover {
-            background-color: #555;
+        /* Media Queries */
+        @media (max-width: 768px) {
+            header {
+                padding: 10px 15px;
+            }
+
+            .logo {
+                width: 120px;
+            }
+
+            .nav-buttons {
+                gap: 10px;
+            }
+
+            .nav-buttons a {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+
+            .container {
+                flex-direction: column;
+                align-items: center;
+                width: 90%;
+            }
+
+            .text-section {
+                width: 100%;
+                padding: 10px;
+                text-align: center;
+            }
+
+            .carousel {
+                width: 100%;
+                height: auto;
+            }
+
+            .carousel img {
+                width: 100%;
+                height: auto;
+            }
+
+            .photo-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .photographer-selector {
+                position: static;
+                text-align: center;
+                margin: 20px auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 5px 10px;
+            }
+
+            .logo {
+                width: 200px;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 10px;
+            }
+
+            .nav-buttons a {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            .photo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .photographer-selector {
+                width: 100%;
+                margin: 10px auto;
+            }
         }
     </style>
+    <script>
+        document.addEventListener("contextmenu", function(e){
+            e.preventDefault();
+        }, false);
+
+        window.onload = function() {
+            const images = document.querySelectorAll('.carousel img');
+            let currentIndex = 0;
+
+            function updateCarousel() {
+                images.forEach((img, index) => {
+                    img.classList.remove('active');
+                    if (index === currentIndex) {
+                        img.classList.add('active');
+                    }
+                });
+            }
+
+            function moveCarousel() {
+                currentIndex = (currentIndex + 1) % images.length;
+                updateCarousel();
+            }
+
+            setInterval(moveCarousel, 4000); // Troca de imagem a cada 4 segundos
+            updateCarousel(); // Estado inicial
+        };
+    </script>
 </head>
 <body>
-    <div class="login-container">
-        <h1>Login</h1>
-        <form action="login_process.php" method="post">
-            <label for="name">Nome Completo</label>
-            <input type="text" id="name" name="name" required>
-            
-            <label for="dob">Data de Nascimento</label>
-            <input type="date" id="dob" name="dob" required>
+    <header>
+        <div class="header-content">
+            <img src="logo.png" alt="Logo" class="logo">
+            <div class="nav-buttons">
+                <a href="#carrinho">Meu Carrinho</a>
+                <a href="#agendar">Agende Sua Sessão</a>
+                <a href="login.html">Login</a> <!-- Adicione este link -->
+            </div>
+        </div>
+    </header>
 
-            <label for="address">Endereço Completo</label>
-            <input type="text" id="address" name="address" required>
+    <div class="container">
+        <div class="text-section">
+            <h2>Bem-vindo ao PHOTTOO</h2>
+            <p>Aqui você encontrará uma seleção exclusiva de fotografias, com opções para compra e download. Explore nossas imagens e descubra o que temos a oferecer!</p>
+        </div>
 
-            <label for="phone">Telefone</label>
-            <input type="phone" id="phone" name="phone" required>
-
-            <label for="email">E-mail</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="password">Senha</label>
-            <input type="password" id="password" name="password" required>
-
-           
-            <button type="submit">Criar</button>
-        </form>
+        <section class="carousel">
+            <img src="a.jpeg" alt="" class="active">
+            <img src="b.jpeg" alt="">
+            <img src="c.jpeg" alt="">
+            <img src="d.jpeg" alt="">
+            <img src="e.jpeg" alt="">
+            <img src="f.jpeg" alt="">
+            <img src="g.jpeg" alt="">
+            <img src="h.jpeg" alt="">
+            <img src="i.jpeg" alt="">
+            <img src="j.jpeg" alt="">
+        </section>
     </div>
-</body>
-</html>
+
+    <div class="photographer-selector">
+        <h2>Selecione o Fotógrafo</h2>
+        <select onchange="window.location.href = this.value;">
+            <option value="" disabled selected>Escolha um fotógrafo</option>
+            <option value="fotografo1.html">Arthur</option>
+            <option value="fotografo2.html">Fotógrafo 2</option>
+            <option value="fotografo3.html">Fotógrafo 3</option>
+            <option value="fotografo4.html">Fotógrafo 4</option>
+            <option value="fotografo5.html">Fotógrafo 5</option>
+        </select>
+    </div>
+
+    <div class="category-section">
+        <h2>Escolha a Categoria</h2>
+        <div class="photo-grid">
+            <a href="1.html">
+                <img src="futsal.jpeg" alt="FUTSAL">
+                <div class="overlay">FUTSAL</div>
+            </a>
+            <a href="2.html">
+                <img src="casamento.jpeg" alt="CASAMENTO">
+                <div class="overlay">CASAMENTO</div>
+                <a href="3.html">
+                    <img src="esportes.jpeg" alt="ESPORTES">
+                    <div class="overlay">ESPORTES</div>
+                </a>
+                <a href="4.html">
+                    <img src="variadas.jpeg" alt="VARIADAS">
+                    <div class="overlay">VARIADAS</div>
+                </a>
+            </div>
+        </div>
+    
+        <footer>
+            <p>&copy; 2024 PHOTTOO. Todos os direitos reservados.</p>
+            <p>Endereço: Rua Amable Peres Rodrigues, 308, Barão de Cocais, Minas Gerais, CEP 35970-000</p>
+            <p>Email: contato@phottoo.com.br | Telefone: (00) 1234-5678</p>
+        </footer>
+    </body>
+    </html>
+    
